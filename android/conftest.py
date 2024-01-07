@@ -3,7 +3,12 @@ from appium.options.android import UiAutomator2Options
 from selene import browser
 import os
 from dotenv import load_dotenv
+from utils import attach
+from appium import webdriver
 
+
+username = os.getenv('LOGIN')
+access_key = os.getenv('PASSWORD')
 
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
@@ -28,17 +33,23 @@ def mobile_management():
             "sessionName": "BStack first_test",
 
             # Set your access credentials
-            "userName": os.getenv('LOGIN'),
-            "accessKey": os.getenv('PASSWORD')
+            "userName": username,
+            "accessKey": access_key
         }
     })
 
-    # browser.config.driver = webdriver.Remote("http://hub.browserstack.com/wd/hub", options=options)
-    browser.config.driver_remote_url = os.getenv('DEFAULT_BROWSER_URL')
-    browser.config.driver_options = options
+    browser.config.driver = webdriver.Remote(
+        "http://hub.browserstack.com/wd/hub",
+        options=options
+    )
 
     browser.config.timeout = float(os.getenv('timeout', '10.0'))
 
     yield
+
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
+    attach.add_video(browser)
 
     browser.quit()
