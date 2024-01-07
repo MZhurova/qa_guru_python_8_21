@@ -4,9 +4,10 @@ import pytest
 import config
 
 from appium.options.android import UiAutomator2Options
+from appium.options.ios import XCUITestOptions
 from selene import browser, support
 from appium import webdriver
-from utils import attach
+from utils import allure_attach
 
 
 @pytest.fixture(scope='function')
@@ -45,8 +46,13 @@ def android_mobile_management():
 
     yield
 
-    attach.screenshot()
-    attach.page_source_xml()
+    allure_attach.screenshot()
+
+    allure_attach.page_source_xml()
+
     session_id = browser.driver.session_id
-    browser.quit()
-    attach.bstack_video(session_id)
+
+    with allure.step('tear down app session'):
+        browser.quit()
+
+    allure_attach.bstack_video(session_id)
