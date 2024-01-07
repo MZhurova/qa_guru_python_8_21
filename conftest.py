@@ -20,8 +20,8 @@ def android_mobile_management():
 
         # Set URL of the application under test
         # "app": "bs://sample.app",
-        "app": "bs://04b49845ae18715f926fe263abfef9701aa7a4d6",
-
+        # "app": "bs://04b49845ae18715f926fe263abfef9701aa7a4d6",
+        "app": "bs://c1c52615799e5efca0852cc5e27e222eb04bb041",
         # Set other BrowserStack capabilities
         'bstack:options': {
             "projectName": "Android tests",
