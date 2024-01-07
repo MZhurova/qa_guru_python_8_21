@@ -48,6 +48,5 @@ def android_mobile_management():
     attach.screenshot()
     attach.page_source_xml()
     session_id = browser.driver.session_id
-    with allure.step('tear down app session'):
-        browser.quit()
+    browser.quit()
     attach.bstack_video(session_id)

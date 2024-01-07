@@ -2,4 +2,4 @@ pytest~=7.4.2
 selene>=2.0.0b4
 allure-pytest==2.9.45
 Appium-Python-Client==3.1.1
-python-dotenv==0.20.0
+python-dotenv==1.0.0
