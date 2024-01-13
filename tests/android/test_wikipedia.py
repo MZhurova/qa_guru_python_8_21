@@ -3,7 +3,7 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
 
-def test_search():
+def test_search(android_mobile_management):
     # with step('Tap on the skip button'):
     #     browser.element((AppiumBy.ID, 'org.wikipedia:id/fragment_onboarding_skip_button')).click()
     with step('Type search'):
@@ -16,7 +16,7 @@ def test_search():
         results.first.should(have.text('Appium'))
 
 
-def test_search_google():
+def test_search_google(android_mobile_management):
     # with step('Tap on the skip button'):
     #     browser.element((AppiumBy.ID, 'org.wikipedia:id/fragment_onboarding_skip_button')).click()
     with step('Type search "Google"'):
