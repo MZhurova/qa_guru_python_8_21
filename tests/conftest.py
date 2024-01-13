@@ -32,9 +32,6 @@ def android_mobile_management():
         }
     })
 
-    # browser.config.driver_remote_url = remote_browser_url
-    # browser.config.driver_options = options
-
     with allure.step('setup app session'):
         browser.config.driver = webdriver.Remote(
             config.remote_browser_url,
@@ -70,7 +67,6 @@ def ios_mobile_management():
 
         # Set URL of the application under test
         "app": "bs://sample.app",
-        # "app": "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d",
 
         # Set other BrowserStack capabilities
         'bstack:options': {
@@ -83,9 +79,6 @@ def ios_mobile_management():
             "accessKey": config.access_key
         }
     })
-
-    # browser.config.driver_remote_url = remote_browser_url
-    # browser.config.driver_options = options
 
     with allure.step('setup app session'):
         browser.config.driver = webdriver.Remote(
