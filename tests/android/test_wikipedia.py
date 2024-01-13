@@ -4,8 +4,8 @@ from selene import browser, have
 
 
 def test_search():
-    with step('Tap on the skip button'):
-        browser.element((AppiumBy.ID, 'org.wikipedia:id/fragment_onboarding_skip_button')).click()
+    # with step('Tap on the skip button'):
+    #     browser.element((AppiumBy.ID, 'org.wikipedia:id/fragment_onboarding_skip_button')).click()
     with step('Type search'):
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type('Appium')
@@ -17,8 +17,8 @@ def test_search():
 
 
 def test_search_google():
-    with step('Tap on the skip button'):
-        browser.element((AppiumBy.ID, 'org.wikipedia:id/fragment_onboarding_skip_button')).click()
+    # with step('Tap on the skip button'):
+    #     browser.element((AppiumBy.ID, 'org.wikipedia:id/fragment_onboarding_skip_button')).click()
     with step('Type search "Google"'):
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type('Google')
